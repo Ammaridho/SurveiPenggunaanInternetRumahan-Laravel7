@@ -5,7 +5,7 @@
         <div class="form-row">
           <div class="form-group col-md-7">
             <label for="nama{{$i}}">Nama</label>
-            <input type="text" class="form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+">
+            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+">
           </div>
           <div class="form-group col-md-5">
             <label for="banyakGadget{{$i}}">Banyak Gadget</label>
@@ -21,25 +21,29 @@
       
       var bg = []; //array untuk mengambil berapa banyak gadget yang dimiliki perorang
 
-      // $("#parentPengguna").find('.banyakgadget').on("change keyup",function () {
-      
-      //   for (var i = 1; i <= ke; i++) {  
-      //     bg[i-1] = $(`#banyakgadget${i}`).val();
-      //   }
-      //   console.log(bg);
+      var nama = [];
 
-      //   $.get("{{route('gadget')}}",{bg:bg,ke:ke}, function(data){
-      //     $("#formgadget").html(data);
-      //   });
-      // });
+      $("#parentPengguna").find('.banyakgadget').on("change keyup",function () {
+        for (var i = 1; i <= ke; i++) {  
+          bg[i-1] = $(`#banyakgadget${i}`).val();
+          nama[i-1] = $(`#nama${i}`).val();
+        }
+        // console.log(bg);
 
-    $('#jumlahpenghuni').on("keyup change",function() {
-      var jumlahpenghuni = $('#jumlahpenghuni').val();
-      
-      $.get("{{route('penghuni')}}",{ke:ke}, function(data) {
-        $("#penghuni").html(data);
+        $.get("{{route('gadget')}}",{ke:ke,bg:bg,nama:nama}, function(data){
+          $("#formgadget").html(data);
+        });
       });
-    });
+
+
+    //masuk ke form gadget
+    // $('#jumlahpenghuni').on("keyup change",function() {
+    //   var jumlahpenghuni = $('#jumlahpenghuni').val();
+      
+    //   $.get("{{route('penghuni')}}",{ke:ke}, function(data) {
+    //     $("#penghuni").html(data);
+    //   });
+    // });
 
     </script>
 

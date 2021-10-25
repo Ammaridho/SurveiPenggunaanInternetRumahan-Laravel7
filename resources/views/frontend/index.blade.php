@@ -104,6 +104,16 @@
 
           <hr class="shadow-lg bg-white mt-5 mb-5">
 
+          <div class="row">
+            <div class="col text-center">
+              <h3>Penjelasan singkat</h3>
+              <p>Penggunaan dibagi atas 3 macam yaitu:</p>
+              <p>1. Ringan = Chatting, searching ringan</p>
+              <p>2. Sedang = Streaming ringan (ig,facebook,dll), </p>
+              <p>3. Berat  = Streaming, Upload Video, Gaming Berat</p>
+            </div>
+          </div>
+
           {{-- Penggunaan --}}
           <div class="form-row" id="formpenghuni">
             <div class="form-col col-md-2">
@@ -113,11 +123,11 @@
               </div>
             </div>
 
-            <div class="form-col col-md-5">
+            <div class="form-col col-md-4">
               <div id="penghuni"></div>
             </div>
 
-            <div class="form-col col-md-5">
+            <div class="form-col col-md-5 offset-md-1">
               <div id="formgadget"></div>
             </div>
 

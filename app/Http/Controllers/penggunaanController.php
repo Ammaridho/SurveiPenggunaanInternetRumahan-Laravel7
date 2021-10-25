@@ -15,13 +15,10 @@ class penggunaanController extends Controller
 
     public function gadget(Request $request)
     {   
-        $$jmlgadget = $request->ke;
+        $jmlpenghuni    = $request->ke;
+        $jmlgadget      = $request->bg;
+        $nama           = $request->nama;
         
-        // $bg[] = $request->bg;
-
-        // dd($bg[]);
-
-        
-        return view('frontend.formgadget',compact('jmlgadget'));
+        return view('frontend.formgadget',compact('jmlpenghuni','jmlgadget','nama'));
     }
 }
