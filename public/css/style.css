@@ -1,0 +1,21 @@
+body{
+    background-image: url("/img/gedung2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow:auto;
+    
+    background-attachment:fixed;
+}
+
+h1,h2,h3,p,label{
+    color: rgb(248, 248, 248);
+}
+
+.container #dalam{
+    background-color: rgba(0, 0, 0, 0.733);
+}
+
+/* .fotoprofile img{
+    widt
+} */
