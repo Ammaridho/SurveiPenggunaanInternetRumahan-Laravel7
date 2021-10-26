@@ -22,13 +22,28 @@
       var bg = []; //array untuk mengambil berapa banyak gadget yang dimiliki perorang
 
       var nama = [];
+      
+      // $("#parentPengguna").find(":input").on('change keyup',function() {
+      //     if($(this).val() === "")
+      //     console.log('ada yang kosong');
+      // });
+
+      
 
       $("#parentPengguna").find('.banyakgadget').on("change keyup",function () {
+
+        $("parentPengguna").children("input").each(function() {
+          if($(this).val() === ""){
+            console.log("Empty Fields!!");
+          }else{
+            console.log("Not Empty");
+          }
+        });
+
         for (var i = 1; i <= ke; i++) {  
           bg[i-1] = $(`#banyakgadget${i}`).val();
           nama[i-1] = $(`#nama${i}`).val();
         }
-        // console.log(bg);
 
         $.get("{{route('gadget')}}",{ke:ke,bg:bg,nama:nama}, function(data){
           $("#formgadget").html(data);
@@ -36,7 +51,7 @@
       });
 
 
-    //masuk ke form gadget
+    // masuk ke form gadget
     // $('#jumlahpenghuni').on("keyup change",function() {
     //   var jumlahpenghuni = $('#jumlahpenghuni').val();
       

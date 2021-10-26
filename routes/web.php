@@ -21,3 +21,5 @@ Route::get('/','indexController@index');
 
 Route::get('/penggunaan','penggunaanController@penghuni')->name('penghuni');
 Route::get('/penggunaangadget','penggunaanController@gadget')->name('gadget');
+
+Route::post('/','surveiController@store')->name('submitSurvei');

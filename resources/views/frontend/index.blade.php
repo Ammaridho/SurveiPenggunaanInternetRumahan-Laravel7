@@ -61,7 +61,10 @@
     {{-- Form Survei --}}
     <div class="row">
       <div class="col-12">
-        <form>
+
+        <form action="{{route('submitSurvei')}}" method="POST">
+
+          @csrf
 
           {{-- Nama Keluarga --}}
           <div class="form-group">
@@ -136,7 +139,9 @@
           <div class="text-center">
             <button type="submit" class="btn btn-primary">Serahkan</button>
           </div>
+
         </form>
+
       </div>
     </div>
 
