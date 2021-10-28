@@ -15,11 +15,13 @@
     {{-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> --}}
     
     <script src="js/jquery-3.6.0.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
 
       <div class="container">   
-            @yield('content');
+            @yield('content')
       </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

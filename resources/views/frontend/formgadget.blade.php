@@ -13,20 +13,20 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="namaGadget">Nama Gadget</label>
-        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv..">
+        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." required>
       </div>
       <div class="form-group col-md-6">
         <label for="penggunaan">Penggunaan</label>
 
-        <div id="penggunaan" class="btn-group btn-group-toggle" data-toggle="buttons">
+        <div id="penggunaan" class="btn-group btn-group-toggle" data-toggle="buttons" required>
           <label class="btn btn-secondary">
-            <input type="radio" name="range{{$i.$j}}" id="range" value="ringan"> Ringan
+            <input type="radio" name="range{{$i.$j}}" id="range" value="ringan" required> Ringan
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="range{{$i.$j}}" id="range" value="sedang"> Sedang
+            <input type="radio" name="range{{$i.$j}}" id="range" value="sedang" required> Sedang
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="range{{$i.$j}}" id="range" value="berat"> Berat
+            <input type="radio" name="range{{$i.$j}}" id="range" value="berat" required> Berat
           </label>
         </div>
         

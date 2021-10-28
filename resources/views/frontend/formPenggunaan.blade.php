@@ -5,11 +5,11 @@
         <div class="form-row">
           <div class="form-group col-md-7">
             <label for="nama{{$i}}">Nama</label>
-            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+">
+            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+" required>
           </div>
           <div class="form-group col-md-5">
             <label for="banyakGadget{{$i}}">Banyak Gadget</label>
-            <input id="banyakgadget{{$i}}" type="number" name="banyakGadget{{$i}}" class="banyakgadget form-control" placeholder="" min="0" max="50">
+            <input id="banyakgadget{{$i}}" type="number" name="banyakGadget{{$i}}" class="banyakgadget form-control" placeholder="" min="0" max="50" required>
           </div>
         </div>
 

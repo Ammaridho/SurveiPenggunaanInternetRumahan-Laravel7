@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\internet_keluarga;
+use App\Models\data_penghuni;
+use App\Models\detail_gadget;
+
 class surveiController extends Controller
 {
     /**
@@ -42,7 +46,16 @@ class surveiController extends Controller
         $biayaBulanan   = $request->biayaBulanan;
         $jumlahPenghuni = $request->jumlahPenghuni;
 
-        // rapihkan nama penghuni dan jumlah gadget
+        //store internet_keluarga
+        $internet_keluarga = new internet_keluarga;
+        $internet_keluarga->namaKeluarga    = $namaKeluarga;
+        $internet_keluarga->provider        = $provider;
+        $internet_keluarga->bandwidth       = $bandwidth;
+        $internet_keluarga->biayaBulanan    = $biayaBulanan;
+        $internet_keluarga->jumlahPenghuni  = $jumlahPenghuni;
+        $internet_keluarga->save();
+
+        // rapihkan dan store nama penghuni dan jumlah gadget
         for($i = 1; $i <= $jumlahPenghuni; $i++ ){
 
             $nama           = "nama"."$i";
@@ -51,30 +64,34 @@ class surveiController extends Controller
             $arraynpbg[$i][1] = $request->$nama;
             $arraynpbg[$i][2] = $request->$banyakGadget;
 
-            
+            $data_penghuni = new data_penghuni;
+            $data_penghuni->nama           = $request->$nama;
+            $data_penghuni->banyakGadget   = $request->$banyakGadget;
+            $data_penghuni->internet_keluarga()->associate($internet_keluarga);
+            $data_penghuni->save();
 
             //rapihkan data penggunaan
-            for ($j = 0; $j < $arraynpbg[$i][2]-1; $j++) { 
+            for ($j = 0; $j < $arraynpbg[$i][2]; $j++) { 
 
                 $a = $i; 
                 $a -= 1;
                 $namaGadget = "namaGadget"."$a"."$j";
                 $range = "range"."$a"."$j";
 
-                $arrayngr[$i][1] = $request->$namaGadget;
-                $arrayngr[$i][2] = $request->$range;
+                //nimpa disini
+                // [orangke][gadgetke][nama/range]
+                $arrayngr[$i][$j][1] = $request->$namaGadget;
+                $arrayngr[$i][$j][2] = $request->$range;
+
+                $detail_gadget = new detail_gadget;
+                $detail_gadget->namaGadget     = $request->$namaGadget;
+                $detail_gadget->range          = $request->$range;
+                $detail_gadget->data_penghuni()->associate($data_penghuni);
+                $detail_gadget->save();
             }
+        
         }
-
-        dd($arrayngr);
-        
-        
-
-        
-
-
-
-        return view('frontend.penutup');
+        return redirect("/penutup");
     }
 
     /**

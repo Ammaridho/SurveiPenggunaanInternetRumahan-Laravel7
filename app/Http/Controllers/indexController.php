@@ -10,4 +10,9 @@ class indexController extends Controller
     {
         return view('frontend.index');
     }
+
+    public function penutup()
+    {
+        return view('frontend.penutup');
+    }
 }
