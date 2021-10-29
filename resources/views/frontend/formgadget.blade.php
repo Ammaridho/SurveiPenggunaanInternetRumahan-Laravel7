@@ -3,8 +3,8 @@
 {{-- banyak penghuni --}}
 @for ($i = 0; $i < $jmlpenghuni; $i++)
 
-    <div class="form-row">
-      <h5>{{$i+1}}. Nama : {{$nama[$i]}}</h5>
+    <div class="form-row mt-3">
+      <h5>{{$i+1}}. {{$nama[$i]}}</h5>
     </div>
 
     {{-- banyak gadget --}}
