@@ -1,5 +1,6 @@
 
     <div id="parentPengguna">
+      <h4 class="text-center">Data Penghuni</h4>
       @for ($i = 1; $i <= $jmlpenghuni; $i++)
 
         <div class="form-row">

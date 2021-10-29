@@ -20,6 +20,7 @@ class CreateInternetKeluargaTable extends Migration
             $table->integer('bandwidth');
             $table->integer('biayaBulanan');
             $table->integer('jumlahPenghuni');
+            $table->enum('kesimpulan',['kurang','cukup','lebih']);
             $table->timestamps();
         });
     }

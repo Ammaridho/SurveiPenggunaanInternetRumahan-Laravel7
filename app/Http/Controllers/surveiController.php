@@ -48,6 +48,7 @@ class surveiController extends Controller
         $bandwidth      = $request->bandwidth;
         $biayaBulanan   = $request->biayaBulanan;
         $jumlahPenghuni = $request->jumlahPenghuni;
+        $kesimpulan     = $request->kesimpulan; 
 
         //store internet_keluarga
         $internet_keluarga = new internet_keluarga;
@@ -56,6 +57,7 @@ class surveiController extends Controller
         $internet_keluarga->bandwidth       = $bandwidth;
         $internet_keluarga->biayaBulanan    = $biayaBulanan;
         $internet_keluarga->jumlahPenghuni  = $jumlahPenghuni;
+        $internet_keluarga->kesimpulan      = $kesimpulan;
         $internet_keluarga->save();
 
         // rapihkan dan store nama penghuni dan jumlah gadget

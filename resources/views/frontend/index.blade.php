@@ -140,6 +140,32 @@
 
           <hr class="shadow-lg bg-white mt-5 mb-5">
 
+          
+          <div class="form-group text-center">
+            <div class="row">
+              <div class="col">
+                <label for="kesimpulan">Kesimpulan Pemakaian</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div id="kesimpulan" class="btn-group btn-group-toggle" data-toggle="buttons" required>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="kesimpulan" id="kesimpulan" value="kurang" required> Kurang
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="kesimpulan" id="kesimpulan" value="cukup" required> Cukup
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="kesimpulan" id="kesimpulan" value="Lebih" required> Lebih
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <hr class="shadow-lg bg-white mt-5 mb-5">
+
           <div class="form-row mt-5">
             <div class="col">
               <center>
