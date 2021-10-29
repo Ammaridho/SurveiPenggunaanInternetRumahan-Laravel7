@@ -22,7 +22,7 @@
 
     <div class="row">
         <div class="col-12 pt-5 pb-5">
-            <a href="https://portofolio.ammaridhos.my.id/" target="_blank"><h2 class="text-center">Tentang saya klik disini</h2></a>
+            <a href="https://portofolio.ammaridhos.my.id/" target="_blank"><h2 class="text-center" style="color: gold">Tentang saya klik disini</h2></a>
         </div>
     </div>
 

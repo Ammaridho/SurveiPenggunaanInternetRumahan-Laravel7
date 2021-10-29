@@ -38,6 +38,9 @@ class surveiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
         // dd($request->all());
 
         $namaKeluarga   = $request->namaKeluarga;

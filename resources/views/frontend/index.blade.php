@@ -5,14 +5,14 @@
 
   {{-- navbar atas --}}
   <nav class="navbar navbar-expand-lg">
-    <a style="font-size: 20px">Survei Pengguna Internet Wifi Rumahan</a>
+    <a class="font-weight-bold" style="font-size: 20px;">Survei Dataset Skripsi</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" style="color: gold" href="https://portofolio.ammaridhos.my.id/">Tentang Saya</a>
+          <a class="nav-link" style="color: #e9894e" href="https://portofolio.ammaridhos.my.id/">Tentang Saya</a>
         </li>
       </ul>
     </div>
@@ -36,7 +36,9 @@
       <div class="col-sm-9">
           <p class="text-justify">Assalamualaikum, Wr. Wb. <br><br>
 
-            Perkenalkan nama saya Ammaridho, saya adalah mahasiswa prodi Teknik Informatika angkatan 2018, Fakultas Sains dan Teknologi, UIN Syarif Hidayatullah Jakarta.<br>
+            Perkenalkan nama saya Ammaridho, <br>
+          <\n>
+            saya adalah mahasiswa prodi Teknik Informatika angkatan 2018, Fakultas Sains dan Teknologi, UIN Syarif Hidayatullah Jakarta.<br>
             
             Saat ini saya sedang melakukan penelitian dalam rangka penyelesaiian Tugas Akhir Skripsi yang berjudul "Pemilihan Bandwidth Internet Rumahan Dengan Metode Algoritma Decision Tree C4.5".<br>
             
@@ -53,6 +55,16 @@
     {{-- Form Survei --}}
     <div class="row">
       <div class="col-12">
+
+        @if ($errors->any())                                       {{-- jika ada error --}}
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)            {{-- tampilkan semua --}}
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
         <form action="{{route('submitSurvei')}}" method="POST">
 
@@ -127,13 +139,19 @@
             </div>
           </div>
 
-          <div class="form-row">
+          <hr class="shadow-lg bg-white mt-5 mb-5">
+
+          <div class="form-row mt-5">
             <div class="col">
-              <div class="g-recaptcha" data-sitekey="6LeAbfwcAAAAAAUHt7RrDaFwoZtoFOIc2Akw55lF"></div>
-            </div>
+              <center>
+                {!! NoCaptcha::renderJs('fr', false, 'recaptchaCallback') !!}
+              {!! NoCaptcha::display() !!}
+              </center>
+              
+               </div>
           </div>
           
-          <div class="text-center">
+          <div class="text-center mt-3">
             <button type="submit" class="btn serahkan" >Serahkan</button>
           </div>
 
@@ -143,8 +161,8 @@
     </div>
 
     <div class="row footer mt-5 p-2">
-      <div class="col text-center">
-        <h5 class="text-center">Copyright &copy; 2021 Ammaridho </h5>
+      <div class="col text-center ">
+        <h5 style="font-size: 15px" class="text-center">Copyright &copy; 2021 Ammaridho </h5>
       </div>
     </div>
     
@@ -160,6 +178,9 @@
       });
     });
 
+    var recaptchaCallback = function () {
+      alert('bisaa');
+    }
 
     
   </script>

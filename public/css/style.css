@@ -8,12 +8,14 @@ body{
     background-attachment:fixed;
 }
 
-h1,h2,h3,p,label{
-    color: rgb(248, 248, 248);
+h1,h2,h3,h4,h5,p,label{
+    color: aliceblue;
+    font-family: 'AppleGothic', sans-serif;
 }
 
 a{
     color: aliceblue;
+    font-family: 'AppleGothic', sans-serif;
 }
 
 .container #dalam{
@@ -26,7 +28,7 @@ a{
 }
 
 .serahkan{
-    background-color: #bd9175;
+    background-color: #cf8659;
     color: rgb(44, 44, 44);
 }
 
