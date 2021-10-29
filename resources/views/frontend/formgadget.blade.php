@@ -12,7 +12,7 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="namaGadget">Nama Gadget</label>
+        <label for="namaGadget">Gadget</label>
         <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." required>
       </div>
       <div class="form-group col-md-6">

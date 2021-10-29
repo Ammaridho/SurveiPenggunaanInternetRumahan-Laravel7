@@ -30,14 +30,13 @@
 
     {{-- Deskripsi perkenalan --}}
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3 mb-4">
           <img src="img/fotocv.png" class="img-thumbnail">
       </div>
-      <div class="col-sm-9">
+      <div class="col-sm-9 mb-4">
           <p class="text-justify">Assalamualaikum, Wr. Wb. <br><br>
 
             Perkenalkan nama saya Ammaridho, <br>
-          <\n>
             saya adalah mahasiswa prodi Teknik Informatika angkatan 2018, Fakultas Sains dan Teknologi, UIN Syarif Hidayatullah Jakarta.<br>
             
             Saat ini saya sedang melakukan penelitian dalam rangka penyelesaiian Tugas Akhir Skripsi yang berjudul "Pemilihan Bandwidth Internet Rumahan Dengan Metode Algoritma Decision Tree C4.5".<br>
@@ -122,19 +121,19 @@
           </div>
 
           {{-- Penggunaan --}}
-          <div class="form-row mt-5" id="formpenghuni">
-            <div class="form-col col-md-2">
+          <div class="form-row mt-5 " id="formpenghuni">
+            <div class="form-col col-md-2 mb-4">
               <div class="form-group">
                 <label for="jumlahPenghuni">Jumlah penghuni</label>
                 <input id="jumlahpenghuni" type="number" name="jumlahPenghuni" class="form-control" placeholder="Jumlah penghuni.." min="0" max="50" required>
               </div>
             </div>
 
-            <div class="form-col col-md-4">
+            <div class="form-col col-md-4 mb-4">
               <div id="penghuni"></div>
             </div>
 
-            <div class="form-col col-md-5 offset-md-1">
+            <div class="form-col col-md-5 offset-md-1 mb-4">
               <div id="formgadget"></div>
             </div>
           </div>

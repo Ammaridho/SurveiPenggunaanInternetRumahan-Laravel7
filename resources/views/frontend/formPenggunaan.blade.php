@@ -3,11 +3,11 @@
       @for ($i = 1; $i <= $jmlpenghuni; $i++)
 
         <div class="form-row">
-          <div class="form-group col-md-7">
-            <label for="nama{{$i}}">Nama</label>
+          <div class="form-group col-7">
+            <label for="nama{{$i}}">{{$i}}.Nama</label>
             <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+" required>
           </div>
-          <div class="form-group col-md-5">
+          <div class="form-group col-5">
             <label for="banyakGadget{{$i}}">Banyak Gadget</label>
             <input id="banyakgadget{{$i}}" type="number" name="banyakGadget{{$i}}" class="banyakgadget form-control" placeholder="" min="0" max="50" required>
           </div>
@@ -49,16 +49,6 @@
           $("#formgadget").html(data);
         });
       });
-
-
-    // masuk ke form gadget
-    // $('#jumlahpenghuni').on("keyup change",function() {
-    //   var jumlahpenghuni = $('#jumlahpenghuni').val();
-      
-    //   $.get("{{route('penghuni')}}",{ke:ke}, function(data) {
-    //     $("#penghuni").html(data);
-    //   });
-    // });
 
     </script>
 
