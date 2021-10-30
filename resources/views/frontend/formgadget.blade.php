@@ -14,7 +14,7 @@
     <div class="form-row">
       <div class="form-group col-4">
         <label for="namaGadget">Gadget</label>
-        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." required>
+        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." onkeypress="return /[a-z]/i.test(event.key)" required>
       </div>
       <div class="form-group col-8">
         <label for="penggunaan">Penggunaan</label>

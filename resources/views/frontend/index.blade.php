@@ -73,7 +73,7 @@
           {{-- Nama Keluarga --}}
           <div class="form-group">
             <label for="namaKeluarga">Nama Keluarga</label>
-            <input type="text" class="form-control" id="namaKeluarga" name="namaKeluarga" placeholder="nama keluarga anda.." required>
+            <input type="text" class="form-control" id="namaKeluarga" name="namaKeluarga" placeholder="nama keluarga anda.." onkeypress="return /[a-z]/i.test(event.key)" required>
           </div>
 
           <hr class="shadow-lg bg-white mt-5 mb-5">
@@ -109,11 +109,11 @@
             </div>
             <div class="form-group col-4">
               <label for="bandwidth">Bandwidth</label>
-              <input type="number" class="form-control" id="bandwidth" name="bandwidth" placeholder="cth. 50" min="0" max="999" required>
+              <input type="number" class="form-control" id="bandwidth" name="bandwidth" placeholder="cth. 50" min="0" max="999" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
             </div>
             <div class="form-group col-4">
               <label for="biayaBulanan">Biaya Bulanan</label>
-              <input type="number" class="form-control" id="biayaBulanan" name="biayaBulanan" placeholder="cth. 400000" min="0" max="9999999" required>
+              <input type="number" class="form-control" id="biayaBulanan" name="biayaBulanan" placeholder="cth. 400000" min="0" max="9999999" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
             </div>
           </div>
 
@@ -134,7 +134,7 @@
             <div class="form-col col-md-2 mb-4">
               <div class="form-group">
                 <label for="jumlahPenghuni">Jumlah penghuni</label>
-                <input id="jumlahpenghuni" type="number" name="jumlahPenghuni" class="form-control" placeholder="Jumlah penghuni.." min="0" max="50" required>
+                <input id="jumlahpenghuni" type="number" name="jumlahPenghuni" class="form-control" placeholder="Jumlah penghuni.." min="0" max="50" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
               </div>
             </div>
 

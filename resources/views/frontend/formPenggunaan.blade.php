@@ -6,11 +6,11 @@
         <div class="form-row">
           <div class="form-group col-7">
             <label for="nama{{$i}}">{{$i}}.Nama</label>
-            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+" required>
+            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+" onkeypress="return /[a-z]/i.test(event.key)" required>
           </div>
           <div class="form-group col-5">
             <label for="banyakGadget{{$i}}">Banyak Gadget</label>
-            <input id="banyakgadget{{$i}}" type="number" name="banyakGadget{{$i}}" class="banyakgadget form-control" placeholder="" min="0" max="50" required>
+            <input id="banyakgadget{{$i}}" type="number" name="banyakGadget{{$i}}" class="banyakgadget form-control" placeholder="" min="0" max="50" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
           </div>
         </div>
 
