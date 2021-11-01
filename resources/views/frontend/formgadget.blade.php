@@ -14,7 +14,7 @@
     <div class="form-row">
       <div class="form-group col-4">
         <label for="namaGadget">Gadget</label>
-        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." onkeypress="return /[a-z]/i.test(event.key)" required>
+        <input type="text" class="form-control" id="namaGadget" name="namaGadget{{$i.$j}}" placeholder="Hp/Laptop/Tv.." onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
       </div>
       <div class="form-group col-8">
         <label for="penggunaan">Penggunaan</label>

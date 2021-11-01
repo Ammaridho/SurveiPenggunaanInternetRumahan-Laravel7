@@ -49,6 +49,7 @@
     <div class="row">
       <div class="col-12 pt-4 pb-4">
         <h3 class="text-center">Selamat Mengisi Survei</h3>
+        <h4 class="text-center mt-3">Mohon Mengisi Survei dengan Sebenar-benarnya 🙏</h4>
       </div>
     </div>
 
@@ -72,8 +73,8 @@
 
           {{-- Nama Keluarga --}}
           <div class="form-group">
-            <label for="namaKeluarga">Nama Keluarga</label>
-            <input type="text" class="form-control" id="namaKeluarga" name="namaKeluarga" placeholder="nama keluarga anda.." onkeypress="return /[a-z]/i.test(event.key)" required>
+            <label for="namaKeluarga">Nama Anda</label>
+            <input type="text" class="form-control" id="namaKeluarga" name="namaKeluarga" placeholder="Nama Anda.." onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
           </div>
 
           <hr class="shadow-lg bg-white mt-5 mb-5">
@@ -81,8 +82,8 @@
           <div class="row">
             <div class="col text-center">
               <h4>Penjelasan singkat</h4>
-              <p>Provider = Nama penyedia layanan internet</p>
-              <p>Bandwidth = Kecepatan internet (mbps)</p>
+              <p>Provider = Nama penyedia layanan internet.</p>
+              <p>Bandwidth = Kecepatan internet (mbps).</p>
             </div>
           </div>
 
@@ -123,9 +124,9 @@
             <div class="col text-center">
               <h4>Penjelasan singkat</h4>
               <p>Penggunaan dibagi atas 3 macam yaitu:</p>
-              <p>1. Ringan = Chatting, searching ringan</p>
-              <p>2. Sedang = Streaming ringan (ig,facebook,dll), </p>
-              <p>3. Berat  = Streaming, Upload Video, Gaming Berat</p>
+              <p>1. Ringan = Chatting, searching ringan, streaming resolusi rendah 360p.</p>
+              <p>2. Sedang = Streaming ringan (ig,facebook,dll), video conference, download dan upload < 10Gb (sedang).</p>
+              <p>3. Berat  = Streaming berat (HD / Full HD / 4k), download dan upload > 10Gb (berat), Gaming Berat.</p>
             </div>
           </div>
 

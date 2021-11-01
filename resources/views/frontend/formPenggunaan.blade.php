@@ -6,7 +6,7 @@
         <div class="form-row">
           <div class="form-group col-7">
             <label for="nama{{$i}}">{{$i}}.Nama</label>
-            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}" pattern="[A-Za-z ]+" onkeypress="return /[a-z]/i.test(event.key)" required>
+            <input type="text" class="nama form-control" id="nama{{$i}}" placeholder="Nama Penghuni" name="nama{{$i}}"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
           </div>
           <div class="form-group col-5">
             <label for="banyakGadget{{$i}}">Banyak Gadget</label>
