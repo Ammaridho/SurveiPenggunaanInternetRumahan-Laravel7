@@ -51,14 +51,22 @@ class surveiController extends Controller
         $kesimpulan     = $request->kesimpulan; 
 
         //store internet_keluarga
-        $internet_keluarga = new internet_keluarga;
-        $internet_keluarga->namaKeluarga    = $namaKeluarga;
-        $internet_keluarga->provider        = $provider;
-        $internet_keluarga->bandwidth       = $bandwidth;
-        $internet_keluarga->biayaBulanan    = $biayaBulanan;
-        $internet_keluarga->jumlahPenghuni  = $jumlahPenghuni;
-        $internet_keluarga->kesimpulan      = $kesimpulan;
-        $internet_keluarga->save();
+            $internet_keluarga = new internet_keluarga;
+            $internet_keluarga->namaKeluarga    = $namaKeluarga;
+            $internet_keluarga->provider        = $provider;
+            $internet_keluarga->bandwidth       = $bandwidth;
+            $internet_keluarga->biayaBulanan    = $biayaBulanan;
+            $internet_keluarga->jumlahPenghuni  = $jumlahPenghuni;
+            $internet_keluarga->kesimpulan      = $kesimpulan;
+            
+            // total gadget
+                for ($i = 1; $i <= $jumlahPenghuni; $i++) { 
+                    $banyakGadget   = "banyakGadget"."$i";
+                    $banyakGadgetTotal[$i] = $request->$banyakGadget;
+                }
+
+            $internet_keluarga->jumlahGadget    = array_sum($banyakGadgetTotal);
+            $internet_keluarga->save();
 
         // rapihkan dan store nama penghuni dan jumlah gadget
         for($i = 1; $i <= $jumlahPenghuni; $i++ ){
@@ -95,7 +103,8 @@ class surveiController extends Controller
                 $detail_gadget->save();
             }
         
-        }
+        }         
+
         return redirect("/penutup");
     }
 
