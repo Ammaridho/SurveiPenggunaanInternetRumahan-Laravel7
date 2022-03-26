@@ -5,8 +5,17 @@
 
   {{-- navbar atas --}}
   <nav class="navbar navbar-expand-lg">
-    <a class="font-weight-bold" style="font-size: 20px;">Survei Dataset Skripsi</a>
-    <a class="ml-auto" style="color: #e9894e" href="https://portofolio.ammaridhos.my.id/">Tentang Saya</a>
+    <a class="font-weight-bold" href="#" style="font-size: 20px;">Survei Dataset Skripsi</a>
+    {{-- <a class="ml-auto" style="color: #e9894e" href="https://portofolio.ammaridhos.my.id/">Tentang Saya</a> --}}
+    
+    {{-- button Login --}}
+    @if (!session('session_login'))
+    <a class="ml-auto" style="color: #e9894e" href="#" data-toggle="modal" data-target="#loginform">Admin</a>
+    @else
+      {{-- button Export Excel --}}
+      <a class="ml-auto pr-2" style="color: #4ee963" href="/exportExcel">Export Excel</a> 
+      <a style="color: #e9894e" href="/logout">Logout</a>  
+    @endif
     {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,6 +27,35 @@
       </ul>
     </div> --}}
   </nav>
+
+  {{-- modal login --}}
+  <div class="modal fade" id="loginform" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="loginformLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="loginformLabel">Login Admin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method="POST">
+            @csrf
+            <div class="form-group">
+              <label class="text-dark" for="idLogin">ID</label>
+              <input type="text" name="idLogin" class="form-control" id="idLogin" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">Hanya akses untuk Admin</small>
+            </div>
+            <div class="form-group">
+              <label class="text-dark" for="passwordLogin">Password</label>
+              <input type="password" name="passwordLogin" class="form-control" id="passwordLogin">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   {{-- Isi --}}
@@ -45,6 +83,39 @@
             Saya ucapkan terimakasih kepada saudara/i atas ketersediaannya mengisi survey ini, data yang diambil hanya akan digunakan untuk penelitian saya dan tidak akan disebarluaskan.</p>
       </div>
     </div>
+
+    <hr class="shadow-lg bg-white mt-5 mb-5">
+    
+    <div class="row mt-3 mb-3">
+      <div class="offset-md-3 col-md-6  offset-sm-2 col-sm-8 text-center">
+        <h4>Membutuhkan 100 Data</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-3 text-center">
+        <h5>0</h5>
+      </div>
+      <div class="offset-5 col-2 text-center">
+        <h5>100</h5>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="offset-md-3 col-md-6 offset-3 col-6  text-center">
+        <div class="progress" style="height: 30px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{$jumlahData}}%">{{$jumlahData}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-md-3 col-md-6  offset-sm-2 col-sm-8 text-center">
+        <p>Setelah data mencapai 100, terdapat reward bagi 2 orang yang beruntung</p>
+      </div>
+    </div>
+
+    <hr class="shadow-lg bg-white mt-5 mb-5">
 
     <div class="row">
       <div class="col-12 pt-4 pb-4">
@@ -75,6 +146,10 @@
           <div class="form-group">
             <label for="namaKeluarga">Nama Anda</label>
             <input type="text" class="form-control" id="namaKeluarga" name="namaKeluarga" placeholder="Nama Anda.." onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+          </div>
+          <div class="form-group">
+            <label for="nomorAktif">Nomor Telfon Aktif untuk Reward</label>
+            <input type="number" class="form-control" id="nomorAktif" name="nomorAktif" placeholder="cth. 0819923497593" min="0" max="99999999999999" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
           </div>
 
           <hr class="shadow-lg bg-white mt-5 mb-5">
@@ -124,9 +199,9 @@
             <div class="col text-center">
               <h4>Penjelasan singkat</h4>
               <p>Penggunaan dibagi atas 3 macam yaitu:</p>
-              <p>1. Ringan = Chatting, searching ringan, streaming resolusi rendah 360p.</p>
-              <p>2. Sedang = Streaming ringan (ig,facebook,dll), video conference, download dan upload < 10Gb (sedang).</p>
-              <p>3. Berat  = Streaming berat (HD / Full HD / 4k), download dan upload > 10Gb (berat), Gaming Berat.</p>
+              <p>1. Ringan = Chatting, Browsing, streaming resolusi rendah 360p.</p>
+              <p>2. Sedang = Social Media Streaming , video conference, download dan upload < 10Gb (sedang).</p>
+              <p>3. Berat  = Streaming (Full HD / 4k), download dan upload > 10Gb (berat), Gaming Intens.</p>
             </div>
           </div>
 

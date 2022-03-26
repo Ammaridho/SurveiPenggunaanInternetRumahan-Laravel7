@@ -41,7 +41,6 @@ class surveiController extends Controller
         $request->validate([
             'g-recaptcha-response' => 'required|captcha'
         ]);
-        // dd($request->all());
 
         $namaKeluarga   = $request->namaKeluarga;
         $provider       = $request->provider;
@@ -49,10 +48,12 @@ class surveiController extends Controller
         $biayaBulanan   = $request->biayaBulanan;
         $jumlahPenghuni = $request->jumlahPenghuni;
         $kesimpulan     = $request->kesimpulan; 
+        $noTelp         = $request->nomorAktif;
 
         //store internet_keluarga
             $internet_keluarga = new internet_keluarga;
             $internet_keluarga->namaKeluarga    = $namaKeluarga;
+            $internet_keluarga->noTelp          = $noTelp;
             $internet_keluarga->provider        = $provider;
             $internet_keluarga->bandwidth       = $bandwidth;
             $internet_keluarga->biayaBulanan    = $biayaBulanan;
@@ -89,16 +90,16 @@ class surveiController extends Controller
                 $a = $i; 
                 $a -= 1;
                 $namaGadget = "namaGadget"."$a"."$j";
-                $range = "range"."$a"."$j";
+                $rangePenggunaan = "range"."$a"."$j";
 
                 //nimpa disini
                 // [orangke][gadgetke][nama/range]
                 $arrayngr[$i][$j][1] = $request->$namaGadget;
-                $arrayngr[$i][$j][2] = $request->$range;
+                $arrayngr[$i][$j][2] = $request->$rangePenggunaan;
 
                 $detail_gadget = new detail_gadget;
                 $detail_gadget->namaGadget     = $request->$namaGadget;
-                $detail_gadget->range          = $request->$range;
+                $detail_gadget->range          = $request->$rangePenggunaan;
                 $detail_gadget->data_penghuni()->associate($data_penghuni);
                 $detail_gadget->save();
             }

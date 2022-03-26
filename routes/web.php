@@ -25,3 +25,16 @@ Route::get('/penggunaangadget','penggunaanController@gadget')->name('gadget');
 Route::post('/','surveiController@store')->name('submitSurvei');
 
 Route::get('/penutup','indexController@penutup')->name('penutup');
+
+// Login
+Route::post('/login','authController@login')->name('login');
+
+// session
+Route::group(['middleware' => 'ceksession'], function(){
+    // Logout
+    Route::get('/logout','authController@logout')->name('logout');
+
+    // Export
+    Route::get('/exportExcel','exportController@exportExcel')->name('exportExcel');
+});
+
