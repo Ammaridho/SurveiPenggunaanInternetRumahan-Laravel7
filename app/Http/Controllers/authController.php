@@ -17,10 +17,14 @@ class authController extends Controller
         // dd(User::all());
         $data = User::where('name',$request->idLogin)->first();
         if($data){
+
+            // id = ammaridho
+            // pass = admin123
+
             if(\Hash::check($request->passwordLogin, $data->password)){
                 session(['session_login' => true]);
                 $request->session()->put('data',$request->input());   //memasikkan inputan dari form login ke dalam data session
-                Session::put('user_id', $data['id']);
+                Session::put('user_id', $data['id']); 
 
                 return redirect('/')->with(['success' => 'Berhasil Masuk!']);
             }

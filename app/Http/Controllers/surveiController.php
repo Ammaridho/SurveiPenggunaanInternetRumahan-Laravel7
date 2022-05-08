@@ -60,6 +60,7 @@ class surveiController extends Controller
             $internet_keluarga->jumlahPenghuni  = $jumlahPenghuni;
             $internet_keluarga->kesimpulan      = $kesimpulan;
             
+            
             // total gadget
                 for ($i = 1; $i <= $jumlahPenghuni; $i++) { 
                     $banyakGadget   = "banyakGadget"."$i";
